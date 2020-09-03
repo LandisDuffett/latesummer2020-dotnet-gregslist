@@ -16,7 +16,23 @@ namespace gregslist_api.Models
         public string Description { get; set; }
         [Required]
         public string ImgUrl { get; set; }
-        [Required]
-        public string UserId { get; set; }
+        public string User { get; set; }
+    }
+
+    public class ViewModelCar : Car
+    {
+        // NOTE this is the relationship id
+        public int FavoriteCarId { get; set; }
+        // public ViewModelCar()
+        // {
+
+        // }
+
+        // this is where you could pass the car to "Base" which is your parent class in the inheritance chain. "Car"
+        // public ViewModelCar(Car car) : base(car)
+        // {
+        // CarId = car.Id
+        // }
+
     }
 }

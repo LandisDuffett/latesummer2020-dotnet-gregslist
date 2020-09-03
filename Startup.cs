@@ -56,7 +56,9 @@ namespace gregslist_api
             services.AddControllers();
             services.AddScoped<IDbConnection>(x => CreateDbConnection());
             services.AddTransient<CarsService>();
+            services.AddTransient<FavoriteCarsService>();
             services.AddTransient<CarsRepository>();
+            services.AddTransient<FavoriteCarsRepository>();
         }
 
 
@@ -83,6 +85,10 @@ namespace gregslist_api
             app.UseAuthentication();
 
             app.UseAuthorization();
+
+            app.UseDefaultFiles();
+
+            app.UseStaticFiles();
 
             app.UseEndpoints(endpoints =>
             {
