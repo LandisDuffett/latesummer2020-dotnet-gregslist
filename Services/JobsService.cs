@@ -56,7 +56,11 @@ namespace gregslist_api.Services
       updatedJob.Company = updatedJob.Company == null ? foundJob.Company : updatedJob.Company;
       updatedJob.Title = updatedJob.Title == null ? foundJob.Title : updatedJob.Title;
       updatedJob.Pay = updatedJob.Pay == 0 ? foundJob.Pay : updatedJob.Pay;
+<<<<<<< HEAD
       updatedJob.User = updatedJob.User == null ? foundJob.User : updatedJob.User;
+=======
+      updatedJob.UserId = updatedJob.UserId == null ? foundJob.UserId : updatedJob.UserId;
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
       bool updated = _repo.Update(updatedJob);
       if (!updated)
       {

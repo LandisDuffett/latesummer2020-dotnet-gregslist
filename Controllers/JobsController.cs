@@ -81,7 +81,11 @@ namespace gregslist_api.Controllers
         {
           throw new Exception("You must be logged in to make a job, yo.");
         }
+<<<<<<< HEAD
         newJob.User = user.Value;
+=======
+        newJob.UserId = user.Value;
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
         return Ok(_service.Create(newJob));
       }
       catch (System.Exception err)
@@ -119,7 +123,11 @@ namespace gregslist_api.Controllers
         {
           throw new Exception("You must be logged in to make a job, yo.");
         }
+<<<<<<< HEAD
         updatedJob.User = user.Value;
+=======
+        updatedJob.UserId = user.Value;
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
         updatedJob.Id = id;
         return Ok(_service.Update(updatedJob));
       }

@@ -23,7 +23,10 @@ namespace gregslist_api
     public Startup(IConfiguration configuration)
     {
       Configuration = configuration;
+<<<<<<< HEAD
 
+=======
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
     }
 
     public IConfiguration Configuration { get; }
@@ -45,6 +48,7 @@ namespace gregslist_api
       {
         options.AddPolicy("CorsDevPolicy", builder =>
               {
+<<<<<<< HEAD
                 builder.WithOrigins(new String[] {
                         "http://localhost:8080", "http://localhost:8081"
               })
@@ -69,7 +73,55 @@ namespace gregslist_api
     }
 
 
+=======
+            builder.WithOrigins(new String[] {
+                        "http://localhost:8080", "http://localhost:8081"
+              })
+              .AllowAnyHeader()
+              .AllowAnyMethod()
+              .AllowCredentials();
+          });
+      });
 
+      services.AddControllers();
+      services.AddScoped<IDbConnection>(x => CreateDbConnection());
+      services.AddTransient<CarsService>();
+      services.AddTransient<CarsRepository>();
+      services.AddTransient<HousesService>();
+      services.AddTransient<HousesRepository>();
+      services.AddTransient<JobsService>();
+      services.AddTransient<JobsRepository>();
+    }
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
+
+    private IDbConnection CreateDbConnection()
+    {
+      string connectionString = Configuration["db:gearhost"];
+      return new MySqlConnection(connectionString);
+    }
+
+    // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+    {
+      if (env.IsDevelopment())
+      {
+        app.UseDeveloperExceptionPage();
+        app.UseCors("CorsDevPolicy");
+      }
+
+<<<<<<< HEAD
+      app.UseHttpsRedirection();
+
+      app.UseRouting();
+
+      app.UseAuthentication();
+
+      app.UseAuthorization();
+
+      app.UseDefaultFiles();
+
+      app.UseStaticFiles();
+=======
     private IDbConnection CreateDbConnection()
     {
       string connectionString = Configuration["db:gearhost"];
@@ -92,10 +144,7 @@ namespace gregslist_api
       app.UseAuthentication();
 
       app.UseAuthorization();
-
-      app.UseDefaultFiles();
-
-      app.UseStaticFiles();
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
 
       app.UseEndpoints(endpoints =>
       {

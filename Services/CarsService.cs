@@ -58,7 +58,11 @@ namespace gregslist_api.Services
       updatedCar.Year = updatedCar.Year == 0 ? foundCar.Year : updatedCar.Year;
       updatedCar.Price = updatedCar.Price == 0 ? foundCar.Price : updatedCar.Price;
       updatedCar.Description = updatedCar.Description == null ? foundCar.Description : updatedCar.Description;
+<<<<<<< HEAD
       updatedCar.User = updatedCar.User == null ? foundCar.User : updatedCar.User;
+=======
+      updatedCar.UserId = updatedCar.UserId == null ? foundCar.UserId : updatedCar.UserId;
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
       updatedCar.ImgUrl = updatedCar.ImgUrl == null ? foundCar.ImgUrl : updatedCar.ImgUrl;
       bool updated = _repo.Update(updatedCar);
       if (!updated)

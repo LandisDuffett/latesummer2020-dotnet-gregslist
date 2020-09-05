@@ -10,6 +10,7 @@ namespace gregslist_api.Models
     [Required]
     public int Pay { get; set; }
     public string Title { get; set; }
+<<<<<<< HEAD
     public string User { get; set; }
   }
   public class ViewModelJob : Job
@@ -27,5 +28,9 @@ namespace gregslist_api.Models
     // CarId = car.Id
     // }
 
+=======
+    [Required]
+    public string UserId { get; set; }
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
   }
 }

@@ -57,7 +57,11 @@ namespace gregslist_api.Services
       updatedHouse.SizeSqFt = updatedHouse.SizeSqFt == 0 ? foundHouse.SizeSqFt : updatedHouse.SizeSqFt;
       updatedHouse.Price = updatedHouse.Price == 0 ? foundHouse.Price : updatedHouse.Price;
       updatedHouse.Description = updatedHouse.Description == null ? foundHouse.Description : updatedHouse.Description;
+<<<<<<< HEAD
       updatedHouse.User = updatedHouse.User == null ? foundHouse.User : updatedHouse.User;
+=======
+      updatedHouse.UserId = updatedHouse.UserId == null ? foundHouse.UserId : updatedHouse.UserId;
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
       updatedHouse.ImgUrl = updatedHouse.ImgUrl == null ? foundHouse.ImgUrl : updatedHouse.ImgUrl;
       bool updated = _repo.Update(updatedHouse);
       if (!updated)

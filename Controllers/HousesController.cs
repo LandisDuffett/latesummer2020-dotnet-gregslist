@@ -81,7 +81,11 @@ namespace gregslist_api.Controllers
         {
           throw new Exception("You must be logged in to make a house, yo.");
         }
+<<<<<<< HEAD
         newHouse.User = user.Value;
+=======
+        newHouse.UserId = user.Value;
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
         return Ok(_service.Create(newHouse));
       }
       catch (System.Exception err)
@@ -119,7 +123,11 @@ namespace gregslist_api.Controllers
         {
           throw new Exception("You must be logged in to edit a house, yo.");
         }
+<<<<<<< HEAD
         updatedHouse.User = user.Value;
+=======
+        updatedHouse.UserId = user.Value;
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
         updatedHouse.Id = id;
         return Ok(_service.Update(updatedHouse));
       }

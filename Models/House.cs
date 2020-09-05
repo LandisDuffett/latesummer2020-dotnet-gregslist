@@ -13,6 +13,7 @@ namespace gregslist_api.Models
     public int Price { get; set; }
     public string Description { get; set; }
     public string ImgUrl { get; set; }
+<<<<<<< HEAD
     public string User { get; set; }
   }
 
@@ -31,5 +32,9 @@ namespace gregslist_api.Models
     // CarId = car.Id
     // }
 
+=======
+    [Required]
+    public string UserId { get; set; }
+>>>>>>> acadc8b8c1ced4196f5f57f513e30ca8f73ec9ee
   }
 }
