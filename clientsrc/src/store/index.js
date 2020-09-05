@@ -17,7 +17,11 @@ export default new Vuex.Store({
   state: {
     user: {},
     cars: [],
-    activeCar: {}
+    activeCar: {},
+    houses: [],
+    activeHouse: {},
+    jobs: [],
+    activeJob: {}
   },
   mutations: {
     setUser(state, user) {
@@ -28,6 +32,18 @@ export default new Vuex.Store({
     },
     setActiveCar(state, car) {
       state.activeCar = car
+    },
+    setHouses(state, houses) {
+      state.houses = houses
+    },
+    setActiveHouse(state, house) {
+      state.activeHouse = house
+    },
+    setJobs(state, jobs) {
+      state.jobs = jobs
+    },
+    setActiveJob(state, job) {
+      state.activeJob = job
     }
   },
   actions: {
@@ -56,6 +72,50 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
+    getHouses({ commit }) {
+      api.get('houses')
+        .then(res => {
+          commit('setHouses', res.data)
+        })
+    },
+    async addHouse({ dispatch }, houseData) {
+      try {
+        let res = await api.post('houses', houseData)
+        dispatch("getHouses")
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    getJobs({ commit }) {
+      api.get('jobs')
+        .then(res => {
+          commit('setJobs', res.data)
+        })
+    },
+    async addJob({ dispatch }, jobData) {
+      try {
+        let res = await api.post('jobs', jobData)
+        dispatch("getJobs")
+      } catch (error) {
+        console.error(error)
+      }
+    },
+    async getActiveJob({ commit }, jobId) {
+      try {
+        let res = await api.get("jobs/" + jobId)
+        commit("setActiveJob", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getActiveHouse({ commit }, houseId) {
+      try {
+        let res = await api.get("houses/" + houseId)
+        commit("setActiveHouse", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
     async getActiveCar({ commit }, carId) {
       try {
         let res = await api.get("cars/" + carId)
@@ -72,10 +132,26 @@ export default new Vuex.Store({
         console.error(error);
       }
     },
+    async addToFavoriteHouses({ commit, dispatch }, favoriteHouse) {
+      try {
+        let res = await api.post("favoriteHouses", favoriteHouse)
+        console.log(res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
     async getFavoriteCars({ commit }) {
       try {
         let res = await api.get("favoriteCars")
         commit("setCars", res.data)
+      } catch (error) {
+        console.error(error);
+      }
+    },
+    async getFavoriteHouses({ commit }) {
+      try {
+        let res = await api.get("favoriteHouses")
+        commit("setHouses", res.data)
       } catch (error) {
         console.error(error);
       }

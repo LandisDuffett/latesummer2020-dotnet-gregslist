@@ -22,14 +22,42 @@
           v-if="$auth.isAuthenticated"
           :class="{ active: $route.name == 'cars' }"
         >
-          <router-link class="nav-link" :to="{ name: 'cars' }">My-Dashboard</router-link>
+          <router-link class="nav-link" :to="{ name: 'cars' }">Cars main page</router-link>
         </li>
         <li
           class="nav-item"
           v-if="$auth.isAuthenticated"
           :class="{ active: $route.name == 'mycars' }"
         >
-          <router-link class="nav-link" :to="{ name: 'mycars' }">My-Cars</router-link>
+          <router-link class="nav-link" :to="{ name: 'mycars' }">My Cars</router-link>
+        </li>
+        <li
+          class="nav-item"
+          v-if="$auth.isAuthenticated"
+          :class="{ active: $route.name == 'houses' }"
+        >
+          <router-link class="nav-link" :to="{ name: 'houses' }">Houses main page</router-link>
+        </li>
+        <li
+          class="nav-item"
+          v-if="$auth.isAuthenticated"
+          :class="{ active: $route.name == 'myhouses' }"
+        >
+          <router-link class="nav-link" :to="{ name: 'myhouses' }">My houses</router-link>
+        </li>
+        <li
+          class="nav-item"
+          v-if="$auth.isAuthenticated"
+          :class="{ active: $route.name == 'jobs' }"
+        >
+          <router-link class="nav-link" :to="{ name: 'jobs' }">Jobs main page</router-link>
+        </li>
+        <li
+          class="nav-item"
+          v-if="$auth.isAuthenticated"
+          :class="{ active: $route.name == 'myjobs' }"
+        >
+          <router-link class="nav-link" :to="{ name: 'myjobs' }">My jobs</router-link>
         </li>
       </ul>
       <span class="navbar-text">
